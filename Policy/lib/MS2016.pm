@@ -43,6 +43,7 @@ sub OK {
     _Color('bold green', '[OK] ', $message);
 }
 
+
 sub _Color {
     my ($color_, $mark, $message) = @_;
     print color($color_) if $color eq 1;
@@ -177,7 +178,6 @@ sub _block_processor_split {
     Info("The output file: $self->{_output_file} is generated");
     Alert("Nothing found") if $c2 le 0;
 }
-
 
 sub run {
     my ($self, $args) = @_;

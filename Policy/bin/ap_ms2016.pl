@@ -8,7 +8,8 @@ use Getopt::Long qw(GetOptions);
 use Term::ANSIColor;
 use Time::HiRes qw(time);
 use Pod::Usage;
-
+##
+use FileOperations qw(CountLines FilterOutToFile CreateUsersCSV);
 
 print<<INTRO;                                                       
                _                                     _ 
@@ -19,6 +20,7 @@ print<<INTRO;
 
 INTRO
 my ($man, $help, $input_file, $output_folder) = (0,0,'', undef);
+
 
 GetOptions('help|?' => \$help, 
             man => \$man,
@@ -39,6 +41,14 @@ my $start_time = time();
 my %input_params;
 $input_params{input} = $input_file;
 $input_params{output} = $output_folder if $output_folder;
+
+CreateUsersCSV({firstNameFile=>'t1.txt', 
+        lastNameFile=>'t2.txt', 
+        passwordFile=>'t3.txt',
+        outFile=>'test.csv',
+        });
+exit;
+##
 
 my $linkedin = MS2016->new({
     %input_params
