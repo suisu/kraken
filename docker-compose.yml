@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+    sftp:
+        image: atmoz/sftp
+        container_name: kraken-sftp
+        hostname: kraken-sftp
+        networks:
+            krbr:
+                ipv4_address: 10.10.10.10
+        restart: on-failure
+        volumes:
+            - kraken-sftp-vol:/home/suzumebachi/upload
+            #- /host/ssh_host_rsa_key:/etc/ssh/ssh_host_rsa_key
+            #- /host/ssh_host_rsa_key.pub:/etc/ssh/ssh_host_rsa_key.pub
+        ports:
+            - "2222:22"
+        command: suzumebachi:suzumebachi:::upload
+        #command: 'admin:$1$4JoDDVBs$qf9XL9ZmJ6Ak3miqpA6qK1:e:1001'
+volumes:
+    kraken-sftp-vol:
+networks:
+    krbr:
+        driver: bridge
+        ipam:
+            config:
+                -   subnet: 10.10.10.0/16
+
+
+#services:
+#    sftp:
+#        build:
+#            context: ./sftp
+#            args:
+#                SSH_MASTER_USER: ${SSH_MASTER_USER}
+#                SSH_MASTER_PASS: ${SSH_MASTER_PASS}
+#        hostname: kraken_sftp
+#        ports:
+#            - "2222:22"
+#        volumes:
+#            - ./data:/data
