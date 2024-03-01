@@ -1,87 +1,66 @@
-name: Google Drive OAuth
-      regex: "[0-9]+-[0-9A-Za-z_]{32}\\.apps\\.googleusercontent\\.com"
-      confidence: high
-  - pattern:
-      name: Google (GCP) Service-account
-      regex: '"type": "service_account"'
-      confidence: high
-  - pattern:
-      name: Google Gmail API Key
-      regex: "AIza[0-9A-Za-z\\-_]{35}"
-      confidence: high
-  - pattern:
-      name: Google Gmail OAuth
-      regex: "[0-9]+-[0-9A-Za-z_]{32}\\.apps\\.googleusercontent\\.com"
-      confidence: high
-  - pattern:
-      name: Google OAuth Access Token
-      regex: "ya29\\.[0-9A-Za-z\\-_]+"
-      confidence: high
-  - pattern:
-      name: Google YouTube API Key
-      regex: "AIza[0-9A-Za-z\\-_]{35}"
-      confidence: high
-  - pattern:
-      name: Google YouTube OAuth
-      regex: "[0-9]+-[0-9A-Za-z_]{32}\\.apps\\.googleusercontent\\.com"
-      confidence: high
-  - pattern:
-      name: Heroku API Key
-      regex: "[hH][eE][rR][oO][kK][uU].*[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}"
-      confidence: high
-  - pattern:
-      name: MailChimp API Key
-      regex: "[0-9a-f]{32}-us[0-9]{1,2}"
-      confidence: high
-  - pattern:
-      name: Mailgun API Key
-      regex: "key-[0-9a-zA-Z]{32}"
-      confidence: high
-  - pattern:
-      name: Password in URL
-      regex: "[a-zA-Z]{3,10}://[^/\\s:@]{3,20}:[^/\\s:@]{3,20}@.{1,100}[\"'\\s]"
-      confidence: high
-  - pattern:
-      name: PayPal Braintree Access Token
-      regex: "access_token\\$production\\$[0-9a-z]{16}\\$[0-9a-f]{32}"
-      confidence: high
-  - pattern:
-      name: Picatic API Key
-      regex: "sk_live_[0-9a-z]{32}"
-      confidence: high
-  - pattern:
-      name: Slack Webhook
-      regex: "https://hooks\\.slack\\.com/services/T[a-zA-Z0-9_]{8}/B[a-zA-Z0-9_]{8}/[a-zA-Z0-9_]{24}"
-      confidence: high
-  - pattern:
-      name: Stripe API Key
-      regex: "sk_live_[0-9a-zA-Z]{24}"
-      confidence: high
-  - pattern:
-      name: Stripe Restricted API Key
-      regex: "rk_live_[0-9a-zA-Z]{24}"
-      confidence: high
-  - pattern:
-      name: Square Access Token
-      regex: "sq0atp-[0-9A-Za-z\\-_]{22}"
-      confidence: high
-  - pattern:
-      name: Square OAuth Secret
-      regex: "sq0csp-[0-9A-Za-z\\-_]{43}"
-      confidence: high
-  - pattern:
-      name: Telegram Bot API Key
-      regex: "[0-9]+:AA[0-9A-Za-z\\-_]{33}"
-      confidence: high
-  - pattern:
-      name: Twilio API Key
-      regex: "SK[0-9a-fA-F]{32}"
-      confidence: high
-  - pattern:
-      name: Twitter Access Token
-      regex: "[tT][wW][iI][tT][tT][eE][rR].*[1-9][0-9]+-[0-9a-zA-Z]{40}"
-      confidence: high
-  - pattern:
-      name: Twitter OAuth
-      regex: '[tT][wW][iI][tT][tT][eE][rR].*[''|"][0-9a-zA-Z]{35,44}[''|"]'
-      confidence: high
+Google Drive OAuth
+Regex: "[0-9]+-[0-9A-Za-z_]{32}\\.apps\\.googleusercontent\\.com"
+Test String: 1234567890-abcdefghijklmnopqrstuvwxyz123456.apps.googleusercontent.com
+Google (GCP) Service-account
+Regex: '"type": "service_account"'
+Test String: {"type": "service_account", "project_id": "my-project", ...}
+Google Gmail API Key
+Regex: "AIza[0-9A-Za-z\\-_]{35}"
+Test String: AIzaSyBCdefGhIjKlMnOpQrStUvWxYz1234567
+Google Gmail OAuth
+Regex: "[0-9]+-[0-9A-Za-z_]{32}\\.apps\\.googleusercontent\\.com"
+Test String: 1234567890-abcdefghijklmnopqrstuvwxyz123456.apps.googleusercontent.com
+Google OAuth Access Token
+Regex: "ya29\\.[0-9A-Za-z\\-_]+"
+Test String: ya29.a0ARrdaM1234567890abcdefghijABCDEFGHIJ
+Google YouTube API Key
+Regex: "AIza[0-9A-Za-z\\-_]{35}"
+Test String: AIzaSyBCdefGhIjKlMnOpQrStUvWxYz1234567
+Google YouTube OAuth
+Regex: "[0-9]+-[0-9A-Za-z_]{32}\\.apps\\.googleusercontent\\.com"
+Test String: 1234567890-abcdefghijklmnopqrstuvwxyz123456.apps.googleusercontent.com
+Heroku API Key
+Regex: "[hH][eE][rR][oO][kK][uU].*[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{4}-[0-9A-F]{12}"
+Test String: heroku_12345678-90ab-cdef-1234-56789abcdef0
+MailChimp API Key
+Regex: "[0-9a-f]{32}-us[0-9]{1,2}"
+Test String: 1234abcd5678efgh1234ijkl5678mnop-us12
+Mailgun API Key
+Regex: "key-[0-9a-zA-Z]{32}"
+Test String: key-3ax6xnjp29jd6fds4gc373sgvjxteol0
+Password in URL
+Regex: "[a-zA-Z]{3,10}://[^/\\s:@]{3,20}:[^/\\s:@]{3,20}@.{1,100}[\"'\\s]"
+Test String: http://user:password@domain.com/
+PayPal Braintree Access Token
+Regex: "access_token\\$production\\$[0-9a-z]{16}\\$[0-9a-f]{32}"
+Test String: access_token$production$abcd1234efgh5678$abcd1234abcd1234abcd1234abcd1234
+Picatic API Key
+Regex: "sk_live_[0-9a-z]{32}"
+Test String: sk_live_1234abcd5678efgh1234ijkl5678mnop
+Slack Webhook
+Regex: "https://hooks\\.slack\\.com/services/T[a-zA-Z0-9_]{8}/B[a-zA-Z0-9_]{8}/[a-zA-Z0-9_]{24}"
+Test String: https://hooks.slack.com/services/T12345678/B12345678/abcdefghijklmnopqrstuvwx
+Stripe API Key
+Regex: "sk_live_[0-9a-zA-Z]{24}"
+Test String: sk_live_1234abcd5678efgh1234ijkl
+Stripe Restricted API Key
+Regex: "rk_live_[0-9a-zA-Z]{24}"
+Test String: rk_live_1234abcd5678efgh1234ijkl
+Square Access Token
+Regex: "sq0atp-[0-9A-Za-z\\-_]{22}"
+Test String: sq0atp-abcdefghijklmnopqrstuv
+Square OAuth Secret
+Regex: "sq0csp-[0-9A-Za-z\\-_]{43}"
+Test String: sq0csp-abcdefghijklmnopqrstuvwxyz123456789abcd
+Telegram Bot API Key
+Regex: "[0-9]+:AA[0-9A-Za-z\\-_]{33}"
+Test String: 123456789:AAabcdefghijklmnopqrstuvwx1234567
+Twilio API Key
+Regex: "SK[0-9a-fA-F]{32}"
+Test String: SKabcd1234abcd1234abcd1234abcd1234
+Twitter Access Token
+Regex: "[tT][wW][iI][tT][tT][eE][rR].*[1-9][0-9]+-[0-9a-zA-Z]{40}"
+Test String: twitter_1234567890-abcdefghijklmnopqrstuvwxyzABCDEFGHIJ
+Twitter OAuth
+Regex: '[tT][wW][iI][tT][tT][eE][rR].*[''|"][0-9a-zA-Z]{35,44}[''|"]'
+Test String: twitter="abcd1234abcd1234abcd1234abcd1234abcd"
